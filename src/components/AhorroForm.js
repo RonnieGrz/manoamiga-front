@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { Modal } from '@mui/material';
 
 const AhorroForm = ({ estado, cambiarEstado }) => {
-  const { selectedUser } = useContext(UserContext);
+  const { selectedUser, getSelectedUsers } = useContext(UserContext);
 
   const fechaActual = new Date();
   const fechaParsed = fechaActual.toLocaleDateString();
@@ -46,6 +46,8 @@ const AhorroForm = ({ estado, cambiarEstado }) => {
                   );
                   console.log(reponse);
                   actions.resetForm();
+                  console.log("Supuestamente llena la tabla del usuario ", selectedUser);
+                  getSelectedUsers(selectedUser)
                 } catch (error) {
                   console.error(error);
                 }

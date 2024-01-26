@@ -18,18 +18,16 @@ const style = {
 };
 
 const UserSavings = (props, { estado, cambiarEstado }) => {
-  const { userSavings, selectedUser } = useContext(UserContext);
+  const { userSavings, selectedUser, getSelectedUsers } = useContext(UserContext);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [estadoModal, cambiarEstadoModal] = useState(false);
 
-  const fechaActual = new Date();
-  const fechaParsed = fechaActual.toLocaleDateString();
-
 
   useEffect(() => {
-    console.log(userSavings);
+    getSelectedUsers(selectedUser)
+    console.log("UserSavings", userSavings);
   }, []);
 
   return (
